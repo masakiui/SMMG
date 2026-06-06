@@ -58,6 +58,11 @@ margin-bottom: 20px;
 font-size: 18px;
 }
 
+h5{
+    color: fafafa;
+}
+
+
 .btn {
 display: block;
 text-align: center;
