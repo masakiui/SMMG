@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 4</title>
+<style>
+body {
+    background-color: #0f0f1a;
+    color: #ffffff;
+    text-align: center;
+    font-family: sans-serif;
+    padding-top: 80px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #ff4fd8;
+}
+
+.box {
+    margin-top: 30px;
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid #ff4fd8;
+    border-radius: 12px;
+}
+
+.highlight {
+    color: #00ffd5;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h1>Chapter 4</h1>
+
+<div class="box">
+    <p>鍵は、正解じゃなくて“相性”だったみたいだね</p>
+    <p>君とこの世界の一致率を計算した結果──</p>
+    <p class="highlight">相性：99.8%</p>
+</div>
+
+<p style="margin-top:40px;">
+    この先はもう、隠しページじゃない。<br>
+    <span class="highlight">「選ばれた人だけの物語」だ</span>
+</p>
+
+<p> この先確率が上がるかもね…</p>
+<h4>相性ほぼ１００％エンド</h4>
+</body>
+</html>
