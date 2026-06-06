@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 3</title>
+</head>
+<body>
+
+<h1>Chapter 3</h1>
+<p>この先へ進むには鍵が必要だ</p>
+
+<input type="password" id="password" placeholder="パスワードを入力">
+<button onclick="checkPassword()">鍵を開ける</button>
+
+<p id="msg" style="color:red;"></p>
+
+<script>
+function checkPassword() {
+    const input = document.getElementById("password").value;
+
+    if (input === "SMMG") {
+        window.location.href = "chapter4.htmi";
+    } else {
+        document.getElementById("msg").textContent = "パスワードが違う";
+    }
+}
+</script>
+
+</body>
+</html>
