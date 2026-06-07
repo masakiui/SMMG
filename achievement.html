@@ -1,104 +1,181 @@
 <!DOCTYPE html>
-
 <html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>記録閲覧室</title>
 
+<style>
+body{
+    background:#111;
+    color:#ddd;
+    font-family:serif;
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+}
 
-    function unlockAchievement(name) {
+h1{
+    text-align:center;
+}
 
-```
-localStorage.setItem(name, "true");
+.subtitle{
+    text-align:center;
+    color:#888;
+    margin-bottom:30px;
+}
+
+.achievement{
+    border:1px solid #444;
+    border-radius:10px;
+    margin-bottom:15px;
+    overflow:hidden;
+}
+
+.button{
+    padding:15px;
+    cursor:pointer;
+}
+
+.button:hover{
+    background:#222;
+}
+
+.details{
+    display:none;
+    padding:15px;
+    border-top:1px solid #444;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:30px;
+    color:#aaa;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>記録閲覧室</h1>
+
+<p class="subtitle">
+青年調査ログ
+</p>
+
+<div id="achievementList"></div>
+
+<a class="back" href="index.html">
+← トップへ戻る
+</a>
+
+<script>
 
 const achievements = [
-    "observer",
-    "explorer",
-    "listener",
-    "friend",
-    "understander"
+
+{
+id:"observer",
+title:"実績１",
+name:"観察者",
+hint:"物語のどこかに隠された入口が存在する。"
+},
+
+{
+id:"explorer",
+title:"実績２",
+name:"探求者",
+hint:"青年の記録を最後まで追え。"
+},
+
+{
+id:"listener",
+title:"実績３",
+name:"聞き上手",
+hint:"青年からの問いに耳を傾けよ。"
+},
+
+{
+id:"friend",
+title:"実績４",
+name:"よき友",
+hint:"まずは通常エンドへ到達せよ。"
+},
+
+{
+id:"understander",
+title:"実績５",
+name:"理解者",
+hint:"真相は表の物語だけでは見えない。"
+},
+
+{
+id:"partner",
+title:"実績６",
+name:"よき相棒",
+hint:"全ての実績を解除せよ。"
+}
+
 ];
 
-const allUnlocked = achievements.every(
-    achievement =>
-    localStorage.getItem(achievement) === "true"
-);
+const list = document.getElementById("achievementList");
 
-if (allUnlocked) {
-    localStorage.setItem("partner", "true");
-}
-```
+achievements.forEach((a,index)=>{
 
-}
+const unlocked =
+localStorage.getItem(a.id) === "true";
 
-function hasAchievement(name) {
-return localStorage.getItem(name) === "true";
-}
+const card = document.createElement("div");
+card.className = "achievement";
 
-function getAchievementData() {
+card.innerHTML = `
+<div class="button"
+onclick="toggleDetail('detail${index}')">
 
-```
-return [
+${unlocked ? "🏆" : "🔒"} ${a.title}
 
-    {
-        id: "observer",
-        title: "実績１",
-        name: "観察者",
-        hint: "物語のどこかに隠された入口が存在する。"
-    },
+</div>
 
-    {
-        id: "explorer",
-        title: "実績２",
-        name: "探求者",
-        hint: "青年の記録を最後まで追え。"
-    },
+<div class="details"
+id="detail${index}">
 
-    {
-        id: "listener",
-        title: "実績３",
-        name: "聞き上手",
-        hint: "青年からの問いに耳を傾けよ。"
-    },
+<p>
+状態：
+${unlocked ? "アンロック済み" : "ロック中"}
+</p>
 
-    {
-        id: "friend",
-        title: "実績４",
-        name: "よき友",
-        hint: "まずは通常エンドへ到達せよ。"
-    },
+<p>
+名称：
+${unlocked ? a.name : "？？？？？"}
+</p>
 
-    {
-        id: "understander",
-        title: "実績５",
-        name: "理解者",
-        hint: "真相は表の物語だけでは見えない。"
-    },
+<p>
+ヒント：
+${a.hint}
+</p>
 
-    {
-        id: "partner",
-        title: "実績６",
-        name: "よき相棒",
-        hint: "全ての実績を解除せよ。"
-    }
+</div>
+`;
 
-];
-```
+list.appendChild(card);
 
-}
-
-function resetAchievements() {
-
-```
-const achievements = [
-    "observer",
-    "explorer",
-    "listener",
-    "friend",
-    "understander",
-    "partner"
-];
-
-achievements.forEach(id => {
-    localStorage.removeItem(id);
 });
-```
+
+function toggleDetail(id){
+
+const detail =
+document.getElementById(id);
+
+if(detail.style.display === "block"){
+detail.style.display = "none";
+}else{
+detail.style.display = "block";
+}
 
 }
+
+</script>
+
+</body>
+</html>
