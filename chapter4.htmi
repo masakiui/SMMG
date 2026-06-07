@@ -55,6 +55,8 @@ unlockAchievement("explorer");
    <a href="index.html" class="btn">
         最初へ戻る
     </a>
-
+<script>
+localStorage.setItem("observer","true");
+</script>
 </body>
 </html>
