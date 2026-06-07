@@ -17,7 +17,11 @@
 <script>
 function checkPassword() {
     const input = document.getElementById("password").value;
-
+function checkPassword(if(text === "DAISUKI"){
+    localStorage.setItem("secretLove","true");
+    alert("🏆 シークレット実績解除");
+}) {
+    const input = document.getElementById("password").value;
     if (input === "SMMG") {
         window.location.href = "chapter4.htmi";
     } else {
