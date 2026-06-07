@@ -28,6 +28,23 @@ function checkPassword(if(text === "DAISUKI"){
         document.getElementById("msg").textContent = "パスワードが違う";
     }
 }
+    <script>
+
+let missCount =
+Number(localStorage.getItem("missCount")) || 0;
+
+function wrongAnswer(){
+
+    missCount++;
+
+    localStorage.setItem("missCount", missCount);
+
+    if(missCount >= 10){
+        localStorage.setItem("stubborn","true");
+    }
+
+}
+</script>
 </script>
 
 </body>
