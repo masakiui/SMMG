@@ -48,9 +48,10 @@ h1 {
 
 <p> この先確率が上がるかもね…</p>
 <h4>相性ほぼ１００％エンド</h4>
-<script src="achievement.js"></script>
+<script src="achievement.html"></script>
 <script>
 unlockAchievement("explorer");
 </script>
+ <script src="index.html"></script>
 </body>
 </html>
