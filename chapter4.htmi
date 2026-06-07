@@ -52,6 +52,9 @@ h1 {
 <script>
 unlockAchievement("explorer");
 </script>
- <script src="index.html"></script>
+   <a href="index.html" class="btn">
+        最初へ戻る
+    </a>
+
 </body>
 </html>
