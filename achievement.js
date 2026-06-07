@@ -1,7 +1,8 @@
 function unlockAchievement(name) {
-localStorage.setItem(name, "true");
 
 ```
+localStorage.setItem(name, "true");
+
 const achievements = [
     "observer",
     "explorer",
@@ -11,12 +12,88 @@ const achievements = [
 ];
 
 const allUnlocked = achievements.every(
-    a => localStorage.getItem(a) === "true"
+    achievement =>
+    localStorage.getItem(achievement) === "true"
 );
 
 if (allUnlocked) {
     localStorage.setItem("partner", "true");
 }
+```
+
+}
+
+function hasAchievement(name) {
+return localStorage.getItem(name) === "true";
+}
+
+function getAchievementData() {
+
+```
+return [
+
+    {
+        id: "observer",
+        title: "実績１",
+        name: "観察者",
+        hint: "物語のどこかに隠された入口が存在する。"
+    },
+
+    {
+        id: "explorer",
+        title: "実績２",
+        name: "探求者",
+        hint: "青年の記録を最後まで追え。"
+    },
+
+    {
+        id: "listener",
+        title: "実績３",
+        name: "聞き上手",
+        hint: "青年からの問いに耳を傾けよ。"
+    },
+
+    {
+        id: "friend",
+        title: "実績４",
+        name: "よき友",
+        hint: "まずは通常エンドへ到達せよ。"
+    },
+
+    {
+        id: "understander",
+        title: "実績５",
+        name: "理解者",
+        hint: "真相は表の物語だけでは見えない。"
+    },
+
+    {
+        id: "partner",
+        title: "実績６",
+        name: "よき相棒",
+        hint: "全ての実績を解除せよ。"
+    }
+
+];
+```
+
+}
+
+function resetAchievements() {
+
+```
+const achievements = [
+    "observer",
+    "explorer",
+    "listener",
+    "friend",
+    "understander",
+    "partner"
+];
+
+achievements.forEach(id => {
+    localStorage.removeItem(id);
+});
 ```
 
 }
